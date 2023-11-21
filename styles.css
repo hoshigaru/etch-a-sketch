@@ -1,0 +1,22 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: -1px;
+    margin-left: -1px;
+    /* should i hardcode the size? */
+    width: 800px;
+    height: 800px;
+}
+
+.grid {
+    width: 50px;
+    height: 50px;
+    flex: 1 1 6%;
+    outline: 1px solid; /* to prevent double border */
+    margin-top: 1px;
+    margin-left: 1px;
+}
+
+.hovered {
+    background-color: turquoise;
+}
