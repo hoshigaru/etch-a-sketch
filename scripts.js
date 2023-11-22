@@ -1,4 +1,5 @@
 let gridSize = 0;
+let nodeList;
 
 const container = document.querySelector('#container');
 
@@ -33,27 +34,22 @@ function generateGrid () {
             gridDiv.style.flexBasis = `${flexBasisNum}%`;
     }}
 
-    const nodeList = container.querySelectorAll('div');
+    nodeList = container.querySelectorAll('div');
 
     for (let i = 0; i < nodeList.length; i++) {
-        nodeList[i].addEventListener('mouseover', (e) => e.target.classList.add('hovered'));
+        nodeList[i].addEventListener('mouseover', (e) => e.target.style.backgroundColor="#"+((1<<24)*Math.random()|0).toString(16));
     }
 }
 
-// note to self: have to fix flex-basis application i think... 960/gridSize should work, but how to make it work? oh wait. fix width and height lol
-
 function clearGrid() {
-    const nodeList = container.querySelectorAll('div');
+    nodeList = container.querySelectorAll('div');
     for (let i = nodeList.length - 1; i >= 0; i--) {
         container.removeChild(nodeList[i]);
     }
 }
 
-const nodeList = container.querySelectorAll('div');
-
-for (let i = 0; i < nodeList.length; i++) {
-    nodeList[i].addEventListener('mouseover', (e) => e.target.classList.add('hovered'));
-}
+// random color functionality...
+const randomColor = "#"+((1<<24)*Math.random()|0).toString(16);
 
 const gridSizeBtn = document.createElement('button');
 gridSizeBtn.classList.add('gridSizeBtn');
@@ -77,3 +73,4 @@ function setGridSize() {
         alert("Sorry, we only support grid sizes between 1 and 90. Try picking a smaller number.")
     }
 }
+
